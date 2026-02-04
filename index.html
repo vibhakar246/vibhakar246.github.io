@@ -749,7 +749,7 @@
         </div>
         <div class="profile-image-container">
           <div class="profile-image">
-            <img src="pic.jpg" alt="Vibhakar Kumar">
+            <img src="assets/pic.jpg" alt="Vibhakar Kumar">
           </div>
           <div class="floating-icons">
             <div class="floating-icon"><i class="devicon-docker-plain"></i></div>
@@ -1056,7 +1056,4 @@
 
     // Close mobile menu when clicking a link
     document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-     
+      link.addEventListener('click', () =>

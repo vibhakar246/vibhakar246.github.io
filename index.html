@@ -1,336 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vibhakar Kumar | DevOps & AiOps Engineer | Portfolio</title>
-  <meta name="description" content="DevOps, Cloud & AiOps Engineer Portfolio - Vibhakar Kumar - Latest Projects & Certifications" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibhakar Kumar | DevOps Engineer</title>
 
-  <style>
-    :root {
-      --primary: #22c55e;
-      --secondary: #3b82f6;
-      --accent: #8b5cf6;
-      --dark: #020617;
-      --card-bg: rgba(15, 23, 42, 0.85);
-      --glow: 0 0 12px rgba(34, 197, 94, 0.3);
-    }
+<style>
+:root {
+  --primary:#22c55e;
+  --bg:#0b0f17;
+  --card:#0f172a;
+  --text:#e6edf3;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    body {
-      margin:0;
-      font-family: 'Segoe UI', 'SF Pro Display', 'Inter', system-ui, Arial, sans-serif;
-      background: #0b0f17;
-      color:#e6edf3;
-      overflow-x: hidden;
-    }
+body{
+  font-family:system-ui;
+  background:var(--bg);
+  color:var(--text);
+}
 
-    /* Enhanced matrix grid overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: 
-        linear-gradient(rgba(34, 197, 94, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(34, 197, 94, 0.02) 1px, transparent 1px);
-      background-size: 32px 32px;
-      pointer-events: none;
-      z-index: -1;
-    }
+/* HEADER */
+header{
+  text-align:center;
+  padding:80px 20px 50px;
+}
 
-    /* Animated name + role */
-    .floating-name {
-      position: absolute;
-      top: 60px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 3.6rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #22c55e, #60a5fa);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
-      animation: float 6s ease-in-out infinite;
-      z-index: 10;
-      margin: 0;
-      white-space: nowrap;
-      letter-spacing: -0.5px;
-    }
+h1{
+  font-size:2.5rem;
+  color:var(--primary);
+}
 
-    .floating-devops {
-      position: absolute;
-      top: 130px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.8rem;
-      color: #a5f3c3;
-      text-shadow: 0 0 12px rgba(59,130,246,0.5);
-      animation: float-delayed 7s ease-in-out infinite;
-      opacity: 0.95;
-      z-index: 9;
-      margin: 0;
-      white-space: nowrap;
-      font-weight: 500;
-      letter-spacing: 1px;
-    }
+.subtitle{
+  color:#94a3b8;
+  margin-top:10px;
+}
 
-    @keyframes float {
-      0%, 100% { transform: translateX(-50%) translateY(0px); }
-      50% { transform: translateX(-50%) translateY(-15px); }
-    }
+/* NAV */
+nav{
+  text-align:center;
+  padding:15px;
+  background:#020617;
+  position:sticky;
+  top:0;
+}
 
-    @keyframes float-delayed {
-      0%, 100% { transform: translateX(-50%) translateY(0px); }
-      50% { transform: translateX(-50%) translateY(-10px); }
-    }
+nav a{
+  margin:0 15px;
+  color:var(--primary);
+  text-decoration:none;
+}
 
-    .profile-container {
-      position: relative;
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 30px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid var(--primary);
-      box-shadow: 0 0 28px rgba(34, 197, 94, 0.6);
-      transition: 0.3s;
-      z-index: 5;
-    }
+/* SECTION */
+section{
+  padding:60px 8%;
+}
 
-    .profile-container:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 35px rgba(34, 197, 94, 0.8);
-    }
+.card{
+  background:var(--card);
+  padding:25px;
+  border-radius:12px;
+  margin-bottom:20px;
+}
 
-    .profile-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+/* SKILLS */
+.skills span{
+  display:inline-block;
+  border:1px solid var(--primary);
+  padding:8px 14px;
+  margin:6px;
+  border-radius:20px;
+}
 
-    header {
-      text-align: center;
-      padding: 200px 20px 100px;
-      background: radial-gradient(circle at 30% 20%, #0f172a 0%, #020617 95%);
-      position: relative;
-      border-bottom: 1px solid rgba(34,197,94,0.2);
-    }
+/* PROJECT */
+.project{
+  margin-bottom:20px;
+}
 
-    .tagline {
-      margin-top: 120px;
-      font-size: 1.3rem;
-      letter-spacing: 1px;
-      color: #cbd5e6;
-      border-top: 1px dashed rgba(34,197,94,0.4);
-      display: inline-block;
-      padding-top: 20px;
-    }
+/* CERT */
+.cert-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
 
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(2, 6, 23, 0.92);
-      backdrop-filter: blur(18px);
-      padding: 16px 20px;
-      text-align: center;
-      z-index: 100;
-      border-bottom: 1px solid rgba(34, 197, 94, 0.3);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    }
+.cert{
+  background:var(--card);
+  padding:15px;
+  border-radius:10px;
+  border:1px solid #1e293b;
+}
 
-    nav a {
-      color: var(--primary);
-      margin: 0 22px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: 0.25s;
-      letter-spacing: 0.5px;
-    }
+/* CONTACT */
+.contact a{
+  color:var(--primary);
+  text-decoration:none;
+}
 
-    nav a:hover { color: #60a5fa; text-shadow: 0 0 8px #60a5fa; border-bottom: 1px solid #60a5fa; padding-bottom: 4px;}
-
-    section {
-      padding: 80px 8%;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    }
-
-    section.visible { opacity: 1; transform: translateY(0); }
-
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(4px);
-      padding: 32px;
-      border-radius: 24px;
-      margin-bottom: 32px;
-      border: 1px solid rgba(34, 197, 94, 0.15);
-      transition: 0.3s;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-
-    .card:hover {
-      border-color: var(--primary);
-      box-shadow: var(--glow);
-      transform: scale(1.01);
-    }
-
-    .key-highlight {
-      color: var(--primary);
-      font-weight: 600;
-      text-shadow: 0 0 6px rgba(34, 197, 94, 0.4);
-      border-bottom: 1px dotted rgba(34,197,94,0.5);
-    }
-
-    /* Skill tags */
-    .skills span {
-      display: inline-block;
-      background: rgba(34, 197, 94, 0.08);
-      padding: 10px 22px;
-      margin: 8px;
-      border-radius: 40px;
-      border: 1px solid rgba(34, 197, 94, 0.4);
-      font-family: 'Fira Code', 'Courier New', monospace;
-      font-weight: 500;
-      transition: all 0.25s ease;
-      cursor: default;
-    }
-
-    .skills span:hover {
-      background: rgba(34, 197, 94, 0.2);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 14px rgba(34, 197, 94, 0.2);
-      border-color: var(--primary);
-    }
-
-    /* Certification grid enhancements */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-      gap: 24px;
-    }
-
-    .cert-card {
-      background: rgba(15, 23, 42, 0.65);
-      padding: 22px;
-      border-radius: 20px;
-      border-left: 5px solid var(--primary);
-      transition: 0.25s;
-      backdrop-filter: blur(2px);
-    }
-
-    .cert-card:hover {
-      background: rgba(34, 197, 94, 0.08);
-      transform: translateX(8px) translateY(-3px);
-    }
-
-    .cert-badge {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    .supporting-badge { color: #3b82f6; }
-    .cert-card.supporting { border-left-color: #3b82f6; }
-
-    /* New badge for recent */
-    .recent-badge {
-      background: #22c55e20;
-      color: #86efac;
-      font-size: 0.7rem;
-      border-radius: 30px;
-      padding: 3px 10px;
-      margin-left: 12px;
-      font-weight: 500;
-      display: inline-block;
-      vertical-align: middle;
-      border: 0.5px solid #22c55e;
-    }
-
-    .project-link {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 8px 28px;
-      border: 1px solid var(--primary);
-      border-radius: 40px;
-      transition: 0.25s;
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 500;
-      background: rgba(34,197,94,0.05);
-    }
-
-    .project-link:hover {
-      background: var(--primary);
-      color: var(--dark);
-      box-shadow: 0 0 15px var(--primary);
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px;
-      border-top: 1px solid rgba(34, 197, 94, 0.2);
-      font-size: 0.9rem;
-    }
-
-    .contact-link {
-      color: var(--primary);
-      text-decoration: none;
-      transition: all 0.2s;
-      font-weight: 500;
-      border-bottom: 1px dashed transparent;
-    }
-
-    .contact-link:hover {
-      color: #60a5fa;
-      border-bottom-color: #60a5fa;
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1.2rem;
-      display: inline-block;
-      background: linear-gradient(120deg, #fff, #94a3b8);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    @media (max-width: 768px) {
-      .floating-name { font-size: 2.2rem; white-space: normal; width: 90%; text-align: center; top: 30px;}
-      .floating-devops { font-size: 1.2rem; white-space: normal; top: 100px; width: 90%;}
-      nav a { margin: 0 12px; font-size: 0.75rem; }
-      .profile-container { width: 140px; height: 140px; }
-      header { padding: 160px 20px 70px; }
-      .tagline { margin-top: 70px; font-size: 1rem;}
-      section { padding: 60px 5%; }
-      .cert-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  border-top:1px solid #1e293b;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <div class="profile-container">
-   <img src="assets/pic.jpg" 
-     alt="Vibhakar Kumar" 
-     class="profile-img"
-     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#22c55e,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:3rem;color:white;font-weight:bold;\'>VK</div>'" />
-  </div>
-  
-  <h1 class="floating-name">Vibhakar Kumar</h1>
-  <h2 class="floating-devops">DevOps & AiOps Engineer</h2>
-  
-  <p class="tagline">⚡ Automating Infrastructure • Ai-Driven Observability • Cloud-Native Excellence ⚡</p>
+  <h1>Vibhakar Kumar</h1>
+  <p class="subtitle">DevOps & AiOps Engineer</p>
 </header>
 
 <nav>
@@ -342,214 +123,90 @@
 </nav>
 
 <section id="about">
-  <h2>About Me</h2>
+  <h2>About</h2>
   <div class="card">
-    <p><span class="key-highlight">DevOps & AiOps Engineer</span> passionate about merging <span class="key-highlight">AI-driven operations</span> with modern infrastructure. Experienced in building <span class="key-highlight">high-availability systems</span>, <span class="key-highlight">autonomous CI/CD pipelines</span>, and <span class="key-highlight">ML-enhanced observability</span>.</p>
-    <p>Proficient in <span class="key-highlight">Kubernetes orchestration</span>, <span class="key-highlight">Infrastructure as Code (Terraform)</span>, <span class="key-highlight">AWS cloud solutions</span>, and integrating <span class="key-highlight">AI anomaly detection</span> into monitoring stacks. I drive reliability and automation using <span class="key-highlight">Prometheus/Grafana</span>, <span class="key-highlight">Python scripting</span>, and <span class="key-highlight">GitOps workflows</span>.</p>
-    <p>Recently focused on <span class="key-highlight">AiOps for predictive scaling</span>, <span class="key-highlight">real-time log intelligence</span>, and <span class="key-highlight">event-driven automation</span>. Actively seeking <span class="key-highlight">DevOps / Platform / AiOps Engineer</span> roles to deliver intelligent, resilient systems.</p>
+    <p>DevOps Engineer focused on automation, cloud infrastructure, and scalable systems. Experienced in Kubernetes, AWS, Terraform, and CI/CD pipelines.</p>
   </div>
 </section>
 
 <section id="skills">
-  <h2>Technical Arsenal</h2>
+  <h2>Skills</h2>
   <div class="card skills">
-    <span>AWS (EKS/EC2/RDS)</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span>
-    <span>Terraform</span><span>GitHub Actions</span><span>ArgoCD</span><span>Prometheus</span>
-    <span>Grafana & Loki</span><span>Python</span><span>Bash</span><span>Linux</span>
-    <span>Ansible</span><span>Helm</span><span>GitOps</span><span>AiOps (MLflow/Anomaly Detection)</span>
-    <span>MySQL</span><span>Oracle SQL</span><span>Java</span><span>REST APIs</span>
+    <span>AWS</span><span>Docker</span><span>Kubernetes</span>
+    <span>Jenkins</span><span>Terraform</span><span>GitHub Actions</span>
+    <span>Prometheus</span><span>Grafana</span>
+    <span>Python</span><span>Linux</span>
   </div>
 </section>
 
 <section id="projects">
-  <h2>⚙️ Engineering Projects</h2>
+  <h2>Projects</h2>
 
-  <!-- RECENT PROJECT 1: AiOps-Driven Monitoring Stack (NEW) -->
-  <div class="card">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-        <h3>🤖 AiOps Anomaly Detection & Predictive Scaling <span style="color:#f97316; font-size:0.75rem; background:#ffedd5; padding:2px 10px; border-radius:20px; margin-left:12px;">RECENT</span></h3>
-        <span style="color: var(--primary); font-size: 0.75rem;">● INTELLIGENT OPS</span>
-    </div>
-    <p>Built an end-to-end <span class="key-highlight">AiOps platform</span> using Python, FastAPI, and Prometheus metrics. Implemented <span class="key-highlight">LSTM-based anomaly detection</span> on real-time metrics, integrated with <span class="key-highlight">Grafana alerts</span> and auto-scaling hooks on AWS EKS. Reduced MTTR by 35% via intelligent root cause analysis.</p>
-    <p><strong>Tech stack:</strong> Kubernetes, TensorFlow, Kafka, AWS CloudWatch, Argo Rollouts, Python.</p>
-    <a href="https://github.com/vibhakar246/aiops-anomaly-detection" class="project-link" target="_blank">🔍 Explore AiOps Project →</a>
+  <div class="card project">
+    <h3>AiOps Monitoring System</h3>
+    <p>Built anomaly detection system using Python and Prometheus.</p>
+    <a href="https://github.com/vibhakar246/aiops-anomaly-detection">GitHub</a>
   </div>
 
-  <!-- RECENT PROJECT 2: FullStack GitOps with ArgoCD & Crossplane (NEW) -->
-  <div class="card">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-        <h3>🚀 GitOps Fusion: ArgoCD + Crossplane <span style="color:#f97316; font-size:0.75rem; background:#ffedd5; padding:2px 10px; border-radius:20px; margin-left:12px;">RECENT</span></h3>
-        <span style="color: var(--secondary); font-size: 0.75rem;">● PLATFORM ENGINEERING</span>
-    </div>
-    <p>Designed a <span class="key-highlight">declarative GitOps pipeline</span> managing cloud resources and application deployments. Integrated <span class="key-highlight">Crossplane</span> to provision AWS RDS and S3 via Kubernetes manifests, synced with ArgoCD. Achieved full infrastructure & app lifecycle automation.</p>
-    <p>Implemented canary deployments with <span class="key-highlight">Flagger</span> and custom metric analysis.</p>
-    <a href="https://github.com/vibhakar246/gitops-crossplane-argocd" class="project-link" target="_blank">📦 View GitOps Project →</a>
+  <div class="card project">
+    <h3>GitOps with ArgoCD</h3>
+    <p>Automated deployments using Kubernetes and ArgoCD.</p>
+    <a href="https://github.com/vibhakar246/gitops-crossplane-argocd">GitHub</a>
   </div>
 
-  <!-- Existing AquaFlow Project (Updated with fresh context) -->
-  <div class="card">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-        <h3>💧 AquaFlow Smart Water Delivery Platform</h3>
-        <span style="color: var(--primary); font-size: 0.8rem;">● PRODUCTION READY</span>
-    </div>
-    <p>Backend water delivery automation with full <span class="key-highlight">CI/CD lifecycle</span>, <span class="key-highlight">Docker containerization</span>, API gateway integration, and automated test coverage. Deployed on AWS ECS with monitoring.</p>
-    <a href="https://github.com/vibhakar246/AquaFlow-Smart-Water-Delivery-Platform" class="project-link" target="_blank">View Repository</a>
+  <div class="card project">
+    <h3>Java CI/CD Pipeline</h3>
+    <p>Jenkins pipeline with Docker deployment.</p>
+    <a href="https://github.com/vibhakar246/java-bank-cicd-devops">GitHub</a>
   </div>
 
-  <!-- Java Banking CI/CD DevOps Project -->
-  <div class="card">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-        <h3>🏦 Java Banking CI/CD DevOps Pipeline</h3>
-        <span style="color: var(--secondary); font-size: 0.8rem;">● AUTOMATED BUILD</span>
-    </div>
-    <p>Java 17 banking app with <span class="key-highlight">Maven multi-module</span>, Jenkins declarative pipeline, SonarQube analysis, and Dockerized deployment. Integrated with GitHub webhooks and Slack notifications.</p>
-    <a href="https://github.com/vibhakar246/java-bank-cicd-devops" class="project-link" target="_blank">View Repository</a>
-  </div>
-
-  <!-- End-to-End DevOps Project (existing) -->
-  <div class="card">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-        <h3>📊 End-to-End DevOps: Python API + Prometheus</h3>
-        <span style="color: var(--primary); font-size: 0.8rem;">● FULL STACK DEPLOYMENT</span>
-    </div>
-    <p>Python REST API deployed with <span class="key-highlight">Docker</span> on AWS EC2, <span class="key-highlight">Jenkins pipeline</span>, Prometheus metrics collection, and Grafana dashboards for real-time insights.</p>
-    <a href="https://github.com/vibhakar246/end-to-end-devops-project" class="project-link" target="_blank">View Repository</a>
-  </div>
 </section>
 
 <section id="cert">
-  <h2>📜 Certifications & Credentials</h2>
-  <div class="card">
-    <div class="cert-grid">
-      <!-- ========== RECENT CERTIFICATIONS MOVED TO TOP ========== -->
-      
-      <!-- AIOps Foundation (Recent - top placement) -->
-      <div class="cert-card" style="border-left-color: #f59e0b; order: 1;">
-        <span class="cert-badge" style="color: #fbbf24;">✨ RECENT CERTIFICATION ✨</span>
-        <h3>AIOps Foundation (DevOps Institute) </h3>
-        <p>AI-driven IT operations, ML observability, anomaly detection frameworks</p>
-        <small style="color:#9ca3af;">Issued: Feb 2026 · Credential ID: AIOPS-VK-2406</small>
-      </div>
+  <h2>Certifications</h2>
+  <div class="card cert-grid">
 
-      <!-- Certified Kubernetes Security Specialist (Recent) -->
-      <div class="cert-card" style="order: 2;">
-        <span class="cert-badge">NEW ★ CERTIFIED</span>
-        <h3>Certified Kubernetes Security Specialist (CKS) – Excellence Track</h3>
-        <p>Security context, runtime security, policy as code, and advanced monitoring</p>
-        <small style="color:#9ca3af;">Issued: Jan 2026 · LFEL-CKS-1022</small>
-      </div>
-
-      <!-- Prometheus Certified Associate (Recent CNCF) -->
-      <div class="cert-card" style="order: 3;">
-        <span class="cert-badge">🔔 RECENT OBSERVABILITY</span>
-        <h3>Prometheus Certified Associate (PCA) – CNCF</h3>
-        <p>Metrics collection, recording rules, alerting fundamentals</p>
-        <small style="color:#9ca3af;">Issued: Dec 2025 · PCA-CNCF-8872</small>
-      </div>
-
-      <!-- ========== CORE / VERIFIED SYSTEM CERTIFICATIONS ========== -->
-      
-      <div class="cert-card">
-        <span class="cert-badge">Verified System</span>
-        <h3>Introduction to DevOps & SRE (LFS162)</h3>
-      </div>
-      <div class="cert-card">
-        <span class="cert-badge">Verified System</span>
-        <h3>Cloud Infrastructure Technologies (LFS151)</h3>
-      </div>
-      <div class="cert-card">
-        <span class="cert-badge">Verified System</span>
-        <h3>Introduction to Jenkins (LFS167)</h3>
-      </div>
-      <div class="cert-card">
-        <span class="cert-badge">Verified System</span>
-        <h3>Introduction to Kubernetes (LFS158)</h3>
-      </div>
-      <div class="cert-card">
-        <span class="cert-badge">Verified System</span>
-        <h3>Introduction to GitOps (LFS169)</h3>
-      </div>
-      <div class="cert-card">
-        <span class="cert-badge">Verified System</span>
-        <h3>DevOps on AWS (AWS Specialty Prep)</h3>
-      </div>
-      
-      <!-- Supporting system certifications -->
-      <div class="cert-card supporting">
-        <span class="cert-badge supporting-badge">Supporting System</span>
-        <h3>Introduction to Linux (LFS101)</h3>
-      </div>
-      <div class="cert-card supporting">
-        <span class="cert-badge supporting-badge">Supporting System</span>
-        <h3>Feature Flagging (LFS140)</h3>
-      </div>
-      <div class="cert-card supporting">
-        <span class="cert-badge supporting-badge">Supporting System</span>
-        <h3>Auth for Web/API (LFEL1004)</h3>
-      </div>
+    <div class="cert">
+      <h3>AIOps Foundation</h3>
+      <p>DevOps Institute • 2026</p>
     </div>
+
+    <div class="cert">
+      <h3>Kubernetes Security (CKS)</h3>
+      <p>Linux Foundation • 2026</p>
+    </div>
+
+    <div class="cert">
+      <h3>Prometheus Associate</h3>
+      <p>CNCF • 2025</p>
+    </div>
+
+    <div class="cert">
+      <h3>DevOps & SRE</h3>
+      <p>LFS162</p>
+    </div>
+
+    <div class="cert">
+      <h3>Kubernetes</h3>
+      <p>LFS158</p>
+    </div>
+
   </div>
 </section>
 
 <section id="contact">
-  <h2>🔌 Initiate Connection</h2>
-  <div class="card" style="text-align: center;">
-    <p style="font-size: 1.2rem;">Ready to automate, scale, and innovate. Let's build the future of Ai-driven infrastructure.</p>
-    <div style="margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-      <p>📞 <a href="tel:+918935991394" class="contact-link">+91 8935991394</a></p>
-      <p>✉️ <a href="mailto:vibhakarsingh@hotmail.com" class="contact-link">vibhakarsingh@hotmail.com</a></p>
-      <p>🐙 <a href="https://github.com/vibhakar246" target="_blank" class="contact-link">github.com/vibhakar246</a></p>
-      <p>🔗 <a href="https://www.linkedin.com/in/iamvibhakar-kumar" target="_blank" class="contact-link">linkedin.com/in/iamvibhakar-kumar</a></p>
-    </div>
-    <div style="margin-top: 30px; background: #0f172a60; border-radius: 32px; padding: 12px; width: fit-content; margin-left: auto; margin-right: auto;">
-      <span style="color:#a5f3c3;">💡 "Automation is intelligence in action — AiOps is the next frontier"</span>
-    </div>
+  <h2>Contact</h2>
+  <div class="card contact">
+    <p>📞 +91 8935991394</p>
+    <p>✉️ vibhakarsingh@hotmail.com</p>
+    <p><a href="https://github.com/vibhakar246">GitHub</a></p>
+    <p><a href="https://linkedin.com">LinkedIn</a></p>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Vibhakar Kumar | Status: <span style="color: var(--primary); font-weight: bold;">System Online 🟢</span> | AiOps-Ready</p>
+  <p>© 2026 Vibhakar Kumar</p>
 </footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const sections = document.querySelectorAll('section');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
-  
-  sections.forEach(s => observer.observe(s));
-
-  // Smooth scroll with offset for sticky nav
-  document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        const navHeight = document.querySelector('nav').offsetHeight;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navHeight - 15;
-        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-      }
-    });
-  });
-
-  // Ensure visible after load for all sections if they appear
-  setTimeout(() => {
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        section.classList.add('visible');
-      }
-    });
-  }, 300);
-});
-</script>
 
 </body>
 </html>

@@ -4,507 +4,288 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vibhakar Kumar | DevOps & AiOps Engineer</title>
-  <meta name="description" content="DevOps, Cloud & AiOps Engineer Portfolio - Vibhakar Kumar. CI/CD, Kubernetes, AWS, AI Infrastructure." />
-
+  <meta name="description" content="DevOps & AiOps Engineer portfolio - CI/CD, Kubernetes, AWS, Terraform, AI infrastructure automation" />
+  <meta name="keywords" content="DevOps, AiOps, AWS, Kubernetes, Terraform, Jenkins, Docker, CI/CD" />
+  <meta name="author" content="Vibhakar Kumar" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     :root {
-      --primary: #22c55e;
-      --primary-glow: rgba(34, 197, 94, 0.3);
-      --secondary: #3b82f6;
-      --dark-bg: #020617;
-      --card-bg: rgba(15, 23, 42, 0.85);
-      --text: #e6edf3;
-      --border-glow: rgba(34, 197, 94, 0.3);
+      --neon:   #00ff9d;
+      --neon2:  #00d4ff;
+      --neon3:  #b44fff;
+      --dark:   #06090f;
+      --dark2:  #080d15;
+      --card:   rgba(12,19,32,0.9);
+      --text:   #e8f4f8;
+      --muted:  #7a9ab5;
+      --border: rgba(0,255,157,0.13);
+      --borderH:rgba(0,255,157,0.45);
     }
-
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
     body {
-      margin: 0;
-      font-family: 'Segoe UI', 'SF Pro Display', 'Inter', Arial, sans-serif;
-      background: #0b0f17;
+      font-family: 'Syne', sans-serif;
+      background: var(--dark);
       color: var(--text);
       overflow-x: hidden;
     }
-
-    /* animated grid background */
     body::before {
       content: '';
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: 
-        linear-gradient(rgba(34, 197, 94, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(34, 197, 94, 0.02) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: -2;
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 15% 8%,  rgba(0,255,157,0.055) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 45% at 85% 25%, rgba(0,212,255,0.045) 0%, transparent 55%),
+        radial-gradient(ellipse 65% 50% at 50% 90%, rgba(180,79,255,0.035) 0%, transparent 60%);
+      pointer-events: none; z-index: 0;
     }
-
-    /* floating elements */
-    .floating-name {
-      position: absolute;
-      top: 60px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 3.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #22c55e, #4ade80);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
-      animation: float 6s ease-in-out infinite;
-      z-index: 10;
-      white-space: nowrap;
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,255,157,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,157,0.018) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none; z-index: 0;
     }
-
-    .floating-devops {
-      position: absolute;
-      top: 130px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.6rem;
-      color: #60a5fa;
-      text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
-      animation: float-delayed 7s ease-in-out infinite;
-      opacity: 0.9;
-      z-index: 9;
-      white-space: nowrap;
+    /* Custom cursor - disabled on mobile */
+    @media (min-width: 769px) {
+      #cur, #curR { display: block; }
+      body { cursor: none; }
     }
-
-    @keyframes float {
-      0%, 100% { transform: translateX(-50%) translateY(0px); }
-      50% { transform: translateX(-50%) translateY(-15px); }
-    }
-    @keyframes float-delayed {
-      0%, 100% { transform: translateX(-50%) translateY(0px); }
-      50% { transform: translateX(-50%) translateY(-10px); }
-    }
-
-    .profile-container {
-      position: relative;
-      width: 170px;
-      height: 170px;
-      margin: 0 auto 30px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid var(--primary);
-      box-shadow: 0 0 30px var(--primary-glow);
-      z-index: 5;
-      background: #0f172a;
-    }
-
-    .profile-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    header {
-      text-align: center;
-      padding: 210px 20px 100px;
-      background: radial-gradient(circle at 30% 20%, #0f172a 0%, #020617 100%);
-      position: relative;
-    }
-
-    .tagline {
-      margin-top: 180px;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
-      color: #94a3b8;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(2, 6, 23, 0.92);
-      backdrop-filter: blur(16px);
-      padding: 1rem;
-      text-align: center;
-      z-index: 100;
-      border-bottom: 1px solid var(--border-glow);
-    }
-
-    nav a {
-      color: var(--primary);
-      margin: 0 1.2rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.25s;
-      font-size: 1rem;
-    }
-
-    nav a:hover { color: #60a5fa; text-shadow: 0 0 6px #60a5fa; }
-
-    section {
-      padding: 70px 8%;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    }
-
-    section.visible { opacity: 1; transform: translateY(0); }
-
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
-      border-left: 5px solid var(--primary);
-      padding-left: 20px;
-      background: linear-gradient(90deg, rgba(34,197,94,0.1), transparent);
-    }
-
-    .card {
-      background: var(--card-bg);
-      padding: 28px;
-      border-radius: 24px;
-      margin-bottom: 30px;
-      border: 1px solid rgba(34, 197, 94, 0.2);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(4px);
-    }
-
-    .card:hover {
-      border-color: var(--primary);
-      box-shadow: 0 10px 30px -10px rgba(34, 197, 94, 0.2);
-      transform: translateY(-3px);
-    }
-
-    .key-highlight {
-      color: var(--primary);
-      font-weight: 600;
-      text-shadow: 0 0 4px rgba(34,197,94,0.3);
-    }
-
-    /* skill chips */
-    .skills span {
-      display: inline-block;
-      background: rgba(34, 197, 94, 0.1);
-      padding: 8px 18px;
-      margin: 6px;
-      border-radius: 40px;
-      border: 1px solid rgba(34, 197, 94, 0.4);
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-
-    .skills span:hover {
-      background: rgba(34, 197, 94, 0.25);
-      transform: translateY(-2px);
-    }
-
-    /* project cards */
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-    .project-badge {
-      font-size: 0.7rem;
-      background: rgba(34,197,94,0.2);
-      padding: 4px 10px;
-      border-radius: 40px;
-      color: #86efac;
-    }
-    .project-link {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 8px 22px;
-      border: 1px solid var(--primary);
-      border-radius: 40px;
-      transition: 0.25s;
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 500;
-    }
-    .project-link:hover {
-      background: var(--primary);
-      color: #020617;
-      box-shadow: 0 0 12px var(--primary);
-    }
-
-    /* certification grid refined */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
-    }
-    .cert-card {
-      background: rgba(15, 23, 42, 0.7);
-      padding: 18px 22px;
-      border-radius: 20px;
-      border-left: 4px solid var(--primary);
-      transition: 0.2s;
-      backdrop-filter: blur(4px);
-    }
-    .cert-card.ai-cert {
-      border-left-color: #a855f7;
-      background: linear-gradient(135deg, rgba(168,85,247,0.05), rgba(15,23,42,0.7));
-    }
-    .cert-badge {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--primary);
-      font-weight: bold;
-    }
-    .ai-badge {
-      color: #c084fc;
-    }
-    .cert-date {
-      font-size: 0.75rem;
-      color: #94a3b8;
-      margin-top: 6px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      border-top: 1px solid rgba(34, 197, 94, 0.2);
-      font-size: 0.9rem;
-    }
-    .contact-link {
-      color: var(--primary);
-      text-decoration: none;
-      transition: 0.2s;
-    }
-    .contact-link:hover { color: #60a5fa; text-decoration: underline; }
-
     @media (max-width: 768px) {
-      .floating-name { font-size: 2rem; white-space: normal; width: 100%; top: 30px; }
-      .floating-devops { font-size: 1rem; top: 95px; white-space: normal; }
-      .tagline { margin-top: 150px; }
-      nav a { margin: 0 8px; font-size: 0.8rem; }
-      .profile-container { width: 130px; height: 130px; }
+      #cur, #curR { display: none; }
+    }
+    #cur  { position:fixed; width:10px; height:10px; background:var(--neon); border-radius:50%; pointer-events:none; z-index:9999; mix-blend-mode:screen; transition:transform .12s; }
+    #curR { position:fixed; width:34px; height:34px; border:1px solid rgba(0,255,157,.45); border-radius:50%; pointer-events:none; z-index:9998; mix-blend-mode:screen; transition:border-color .2s, transform .2s; }
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:500;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1rem 5%;
+      background:rgba(6,9,15,0.92); backdrop-filter:blur(22px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-logo { font-family:'Space Mono',monospace; font-size:.95rem; color:var(--neon); letter-spacing:3px; }
+    .nav-links { display:flex; gap:2rem; }
+    .nav-links a { font-family:'Space Mono',monospace; font-size:.72rem; color:var(--muted); text-decoration:none; letter-spacing:2px; text-transform:uppercase; position:relative; transition:color .2s; }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1px; background:var(--neon); transition:width .25s; }
+    .nav-links a:hover { color:var(--neon); }
+    .nav-links a:hover::after { width:100%; }
+    header {
+      position:relative; z-index:2; min-height:100vh;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:120px 5% 80px; overflow:hidden;
+    }
+    .avatar-ring {
+      width:158px; height:158px; border-radius:50%;
+      border:2px solid rgba(0,255,157,.28); padding:4px;
+      margin-bottom:2.2rem; position:relative;
+      opacity:0; animation:fadeUp .8s .1s forwards;
+    }
+    .avatar-ring::before { content:''; position:absolute; inset:-9px; border-radius:50%; border:1px solid rgba(0,212,255,.18); animation:spin 9s linear infinite; }
+    .avatar-ring::after  { content:''; position:absolute; inset:-17px; border-radius:50%; border:1px dashed rgba(180,79,255,.12); animation:spin 16s linear infinite reverse; }
+    .avatar-img { width:100%; height:100%; border-radius:50%; object-fit:cover; }
+    .avatar-fallback {
+      width:100%; height:100%; border-radius:50%;
+      background:linear-gradient(135deg,rgba(0,255,157,.12),rgba(180,79,255,.12));
+      border:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Space Mono',monospace; font-size:2.2rem; font-weight:700; color:var(--neon);
+    }
+    .hero-tag { font-family:'Space Mono',monospace; font-size:.68rem; letter-spacing:4px; color:var(--neon); text-transform:uppercase; margin-bottom:1.8rem; opacity:0; animation:fadeUp .8s .2s forwards; }
+    .hero-name { font-size:clamp(3rem,8vw,7rem); font-weight:800; line-height:1; letter-spacing:-2px; margin-bottom:.8rem; opacity:0; animation:fadeUp .8s .4s forwards; }
+    .hero-name span { display:block; background:linear-gradient(135deg,#00ff9d 0%,#00d4ff 50%,#b44fff 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .hero-subtitle { font-family:'Space Mono',monospace; font-size:clamp(.8rem,2vw,1rem); color:var(--muted); letter-spacing:3px; text-transform:uppercase; margin-bottom:2.4rem; opacity:0; animation:fadeUp .8s .6s forwards; }
+    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; opacity:0; animation:fadeUp .8s .8s forwards; }
+    .btn { padding:.72rem 1.9rem; border-radius:4px; font-family:'Space Mono',monospace; font-size:.72rem; letter-spacing:2px; text-transform:uppercase; text-decoration:none; transition:all .25s; display:inline-block; }
+    .btn-p { background:var(--neon); color:#050a10; border:1px solid var(--neon); }
+    .btn-p:hover { background:transparent; color:var(--neon); box-shadow:0 0 20px rgba(0,255,157,.28); }
+    .btn-o { background:transparent; color:var(--neon2); border:1px solid rgba(0,212,255,.4); }
+    .btn-o:hover { background:rgba(0,212,255,.09); border-color:var(--neon2); box-shadow:0 0 20px rgba(0,212,255,.18); }
+    section { position:relative; z-index:2; padding:96px 6%; }
+    .sec-label { font-family:'Space Mono',monospace; font-size:.63rem; letter-spacing:4px; color:var(--neon); text-transform:uppercase; margin-bottom:.9rem; display:flex; align-items:center; gap:12px; }
+    .sec-label::after { content:''; width:50px; height:1px; background:var(--neon); opacity:.4; }
+    .sec-title { font-size:clamp(2rem,5vw,3.4rem); font-weight:800; line-height:1.1; letter-spacing:-1px; margin-bottom:2.8rem; }
+    .sec-title em { font-style:normal; color:transparent; -webkit-text-stroke:1px rgba(0,255,157,.38); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+    .about-text p { color:var(--muted); line-height:1.9; margin-bottom:1.4rem; font-size:.98rem; }
+    .about-text strong { color:var(--text); font-weight:600; }
+    .terminal { background:rgba(0,0,0,.55); border:1px solid rgba(0,255,157,.13); border-radius:8px; padding:1.4rem; font-family:'Space Mono',monospace; font-size:.76rem; line-height:2; color:rgba(0,255,157,.8); margin-bottom:1.8rem; }
+    .tc { color:rgba(122,154,181,.45); } .tk { color:var(--neon2); } .ts { color:#ffd580; }
+    .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .stat-box { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1.4rem; position:relative; overflow:hidden; transition:border-color .2s, transform .2s; }
+    .stat-box::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--neon); }
+    .stat-box:nth-child(2)::before { background:var(--neon2); }
+    .stat-box:nth-child(3)::before { background:var(--neon3); }
+    .stat-box:nth-child(4)::before { background:#ffb300; }
+    .stat-box:hover { border-color:var(--borderH); transform:translateY(-2px); }
+    .stat-num { font-family:'Space Mono',monospace; font-size:2.4rem; font-weight:700; color:var(--neon); line-height:1; margin-bottom:.2rem; }
+    .stat-box:nth-child(2) .stat-num { color:var(--neon2); }
+    .stat-box:nth-child(3) .stat-num { color:var(--neon3); }
+    .stat-box:nth-child(4) .stat-num { color:#ffb300; }
+    .stat-label { font-size:.78rem; color:var(--muted); letter-spacing:1px; }
+    #skills { background:var(--dark2); }
+    .skills-wrap { display:flex; flex-direction:column; gap:2rem; }
+    .skill-cat h4 { font-family:'Space Mono',monospace; font-size:.63rem; letter-spacing:3px; color:var(--neon2); text-transform:uppercase; margin-bottom:.9rem; }
+    .tags { display:flex; flex-wrap:wrap; gap:.55rem; }
+    .tag { padding:.45rem 1rem; border:1px solid; border-radius:2px; font-family:'Space Mono',monospace; font-size:.68rem; letter-spacing:1px; transition:all .2s; cursor:pointer; }
+    .tg { border-color:rgba(0,255,157,.28); color:rgba(0,255,157,.8); }
+    .tg:hover { background:rgba(0,255,157,.07); border-color:var(--neon); color:var(--neon); box-shadow:0 0 10px rgba(0,255,157,.13); }
+    .tb { border-color:rgba(0,212,255,.28); color:rgba(0,212,255,.8); }
+    .tb:hover { background:rgba(0,212,255,.07); border-color:var(--neon2); color:var(--neon2); box-shadow:0 0 10px rgba(0,212,255,.13); }
+    .tp { border-color:rgba(180,79,255,.28); color:rgba(180,79,255,.8); }
+    .tp:hover { background:rgba(180,79,255,.07); border-color:var(--neon3); color:var(--neon3); box-shadow:0 0 10px rgba(180,79,255,.13); }
+    .ta { border-color:rgba(255,179,0,.28); color:rgba(255,179,0,.8); }
+    .ta:hover { background:rgba(255,179,0,.07); border-color:#ffb300; color:#ffb300; box-shadow:0 0 10px rgba(255,179,0,.13); }
+    .proj-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.4rem; }
+    .proj-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1.8rem; position:relative; overflow:hidden; transition:all .3s cubic-bezier(.2,.9,.3,1.1); }
+    .proj-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--neon),var(--neon2)); transform:scaleX(0); transform-origin:left; transition:transform .3s; }
+    .proj-card:hover::before { transform:scaleX(1); }
+    .proj-card:hover { border-color:rgba(0,255,157,.28); transform:translateY(-5px); box-shadow:0 20px 40px rgba(0,0,0,.4); }
+    .proj-card.feat { grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start; }
+    .proj-card.feat::before { background:linear-gradient(90deg,var(--neon),var(--neon3)); }
+    .proj-badge { display:inline-block; padding:.22rem .7rem; background:rgba(0,255,157,.07); border:1px solid rgba(0,255,157,.18); border-radius:2px; font-family:'Space Mono',monospace; font-size:.58rem; letter-spacing:2px; color:var(--neon); text-transform:uppercase; margin-bottom:.9rem; }
+    .proj-card h3 { font-size:1.15rem; font-weight:700; margin-bottom:.65rem; color:var(--text); }
+    .proj-card p  { color:var(--muted); font-size:.88rem; line-height:1.75; margin-bottom:1.3rem; }
+    .pills { display:flex; flex-wrap:wrap; gap:.35rem; margin-bottom:1.3rem; }
+    .pill { padding:.18rem .55rem; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:2px; font-family:'Space Mono',monospace; font-size:.58rem; color:var(--muted); }
+    .proj-link { display:inline-flex; align-items:center; gap:.45rem; font-family:'Space Mono',monospace; font-size:.68rem; letter-spacing:2px; color:var(--neon); text-decoration:none; text-transform:uppercase; border-bottom:1px solid rgba(0,255,157,.28); padding-bottom:2px; transition:all .2s; }
+    .proj-link:hover { border-color:var(--neon); gap:.75rem; }
+    .pipe-box { background:rgba(0,0,0,.4); border:1px solid var(--border); border-radius:6px; padding:1rem; font-family:'Space Mono',monospace; font-size:.68rem; color:var(--muted); line-height:1.95; }
+    .pipe-box .ph { color:var(--neon); margin-bottom:.4rem; }
+    .pipe-box .ok { color:var(--neon); margin-top:.4rem; }
+    #cert { background:var(--dark2); }
+    .cert-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:1.1rem; }
+    .cert-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1.4rem; transition:all .25s; }
+    .cert-card:hover { border-color:var(--borderH); transform:translateY(-3px); }
+    .cert-card.ai { border-color:rgba(180,79,255,.18); }
+    .cert-card.ai:hover { border-color:rgba(180,79,255,.48); }
+    .cert-ico { width:34px; height:34px; border-radius:6px; font-size:15px; display:flex; align-items:center; justify-content:center; margin-bottom:.9rem; }
+    .ico-g { background:rgba(0,255,157,.1); } .ico-p { background:rgba(180,79,255,.1); } .ico-b { background:rgba(0,212,255,.1); }
+    .cert-lbl { font-family:'Space Mono',monospace; font-size:.56rem; letter-spacing:2px; text-transform:uppercase; color:var(--neon); margin-bottom:.45rem; }
+    .cert-lbl.ai { color:var(--neon3); }
+    .cert-card h3 { font-size:.92rem; font-weight:600; line-height:1.4; margin-bottom:.45rem; color:var(--text); }
+    .cert-card p  { font-size:.78rem; color:var(--muted); margin-bottom:.2rem; }
+    .cert-date { font-family:'Space Mono',monospace; font-size:.68rem; color:rgba(122,154,181,.55); }
+    .contact-wrap { max-width:780px; margin:0 auto; text-align:center; }
+    .contact-sub { font-size:.98rem; color:var(--muted); margin-bottom:2.8rem; line-height:1.8; }
+    .contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(175px,1fr)); gap:1rem; margin-bottom:3rem; }
+    .contact-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1.4rem 1rem; text-decoration:none; display:block; transition:all .25s; }
+    .contact-card:hover { border-color:var(--borderH); transform:translateY(-3px); background:rgba(0,255,157,.025); }
+    .cc-ico { font-size:1.4rem; margin-bottom:.7rem; }
+    .cc-label { font-family:'Space Mono',monospace; font-size:.58rem; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:.22rem; }
+    .cc-val { font-size:.82rem; color:var(--text); word-break:break-all; }
+    footer { position:relative; z-index:2; border-top:1px solid var(--border); padding:1.8rem 6%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+    footer p { font-family:'Space Mono',monospace; font-size:.68rem; color:var(--muted); letter-spacing:1px; }
+    .status { display:flex; align-items:center; gap:8px; font-family:'Space Mono',monospace; font-size:.63rem; letter-spacing:2px; color:var(--neon); text-transform:uppercase; }
+    .dot { width:6px; height:6px; border-radius:50%; background:var(--neon); animation:pulse 2s ease-in-out infinite; }
+    .rv { opacity:0; transform:translateY(38px); transition:all .7s cubic-bezier(.2,.9,.3,1.1); }
+    .rv.in { opacity:1; transform:translateY(0); }
+    .d1 { transition-delay:.1s; } .d2 { transition-delay:.2s; } .d3 { transition-delay:.3s; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes spin   { to{transform:rotate(360deg)} }
+    @keyframes pulse  { 0%,100%{box-shadow:0 0 7px var(--neon)} 50%{box-shadow:0 0 16px var(--neon),0 0 28px rgba(0,255,157,.3)} }
+    @media (max-width:768px) {
+      .about-grid { grid-template-columns:1fr; }
+      .proj-card.feat { grid-column:auto; grid-template-columns:1fr; }
+      nav { padding:1rem 4%; } .nav-links { gap:1rem; } .nav-links a { font-size:.62rem; }
+      section { padding:68px 5%; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="profile-container">
-    <img src="assets/pic.jpg" 
-         alt="Vibhakar Kumar" 
-         class="profile-img"
-         onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#22c55e,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:3rem;color:white;\'>VK</div>'">
-  </div>
-  <h1 class="floating-name">Vibhakar Kumar</h1>
-  <h2 class="floating-devops">DevOps & AiOps Engineer</h2>
-  <p class="tagline">⚡ Automating Infrastructure • AI-Ready Pipelines • Cloud-Native Ecosystems</p>
-</header>
+<div id="cur"></div>
+<div id="curR"></div>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#cert">Certifications</a>
-  <a href="#contact">Contact</a>
+  <div class="nav-logo">VK_</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Stack</a>
+    <a href="#projects">Work</a>
+    <a href="#cert">Certs</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
+<header id="home">
+  <div class="avatar-ring">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2300ff9d20'/%3E%3Ctext x='50' y='67' font-size='40' text-anchor='middle' fill='%2300ff9d' font-family='monospace'%3EVK%3C/text%3E%3C/svg%3E"
+         alt="Vibhakar Kumar" class="avatar-img">
+  </div>
+  <p class="hero-tag">// Available for hire · DevOps · AiOps</p>
+  <h1 class="hero-name">
+    <span>Vibhakar</span>
+    <span>Kumar</span>
+  </h1>
+  <p class="hero-subtitle">DevOps &amp; AiOps Engineer</p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn btn-p">View Projects</a>
+    <a href="#contact"  class="btn btn-o">Get in Touch</a>
+  </div>
+</header>
+
 <section id="about">
-  <h2>About Me</h2>
-  <div class="card">
-    <p><span class="key-highlight">DevOps & AiOps Engineer</span> passionate about building <span class="key-highlight">high-availability systems</span> with <span class="key-highlight">Infrastructure as Code</span> and <span class="key-highlight">GitOps</span>. I merge modern CI/CD, container orchestration, and AI infrastructure principles to create resilient, automated platforms.</p>
-    <p>Expertise in <span class="key-highlight">Kubernetes</span>, <span class="key-highlight">Terraform</span>, <span class="key-highlight">AWS</span>, <span class="key-highlight">Jenkins</span>, and <span class="key-highlight">Prometheus/Grafana</span> stacks. I design end-to-end pipelines with integrated security scanning (Trivy) and real-time observability.</p>
-    <p>Currently seeking <span class="key-highlight">DevOps Engineer</span> / <span class="key-highlight">Platform Engineer</span> roles where I can drive automation, AI-assisted operations, and cloud efficiency.</p>
+  <div class="sec-label">01 — About</div>
+  <h2 class="sec-title rv">Building the <em>Future</em><br>of Infrastructure</h2>
+  <div class="about-grid">
+    <div class="about-text rv d1">
+      <div class="terminal">
+        <div><span class="tc"># whoami</span></div>
+        <div><span class="tk">role</span>: <span class="ts">"DevOps &amp; AiOps Engineer"</span></div>
+        <div><span class="tk">focus</span>: <span class="ts">"AI-Ready Pipelines"</span></div>
+        <div><span class="tk">status</span>: <span style="color:var(--neon)">● open_to_work</span></div>
+        <div><span class="tk">location</span>: <span class="ts">"India"</span></div>
+      </div>
+      <p><strong>DevOps &amp; AiOps Engineer</strong> passionate about building high-availability systems with Infrastructure as Code and GitOps. I merge modern CI/CD, container orchestration, and AI infrastructure principles to create resilient, automated platforms.</p>
+      <p>Expertise in <strong>Kubernetes</strong>, <strong>Terraform</strong>, <strong>AWS</strong>, <strong>Jenkins</strong>, and <strong>Prometheus/Grafana</strong> stacks. End-to-end pipelines with integrated security scanning and real-time observability.</p>
+      <p>Seeking <strong>DevOps Engineer / Platform Engineer</strong> roles where I can drive automation, AI-assisted operations, and cloud efficiency.</p>
+    </div>
+    <div class="stat-grid rv d2">
+      <div class="stat-box"><div class="stat-num">11+</div><div class="stat-label">Certifications</div></div>
+      <div class="stat-box"><div class="stat-num">4+</div><div class="stat-label">Live Projects</div></div>
+      <div class="stat-box"><div class="stat-num">8</div><div class="stat-label">Pipeline Stages</div></div>
+      <div class="stat-box"><div class="stat-num">100%</div><div class="stat-label">AI-Ready Stack</div></div>
+    </div>
   </div>
 </section>
 
 <section id="skills">
-  <h2>Technical Arsenal</h2>
-  <div class="card skills">
-    <span>AWS</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>Terraform</span>
-    <span>GitHub Actions</span><span>Prometheus</span><span>Grafana</span><span>Trivy</span><span>Helm</span>
-    <span>Python</span><span>Bash</span><span>Linux</span><span>GitOps</span><span>Ansible</span>
-    <span>MySQL</span><span>Java</span><span>HTML5/CSS3</span><span>JavaScript</span><span>ECR/ECS</span>
+  <div class="sec-label">02 — Skills</div>
+  <h2 class="sec-title rv">Technical <em>Arsenal</em></h2>
+  <div class="skills-wrap">
+    <div class="skill-cat rv d1"><h4>// Cloud &amp; Infrastructure</h4><div class="tags"><span class="tag tg">AWS</span><span class="tag tg">Terraform</span><span class="tag tg">Kubernetes</span><span class="tag tg">Docker</span><span class="tag tg">Helm</span><span class="tag tg">ECR / ECS</span><span class="tag tg">Ansible</span></div></div>
+    <div class="skill-cat rv d2"><h4>// CI/CD &amp; Automation</h4><div class="tags"><span class="tag tb">Jenkins</span><span class="tag tb">GitHub Actions</span><span class="tag tb">GitOps</span><span class="tag tb">Trivy</span><span class="tag tb">SonarQube</span><span class="tag tb">Maven</span><span class="tag tb">Argo CD</span></div></div>
+    <div class="skill-cat rv d3"><h4>// Observability &amp; AI</h4><div class="tags"><span class="tag tp">Prometheus</span><span class="tag tp">Grafana</span><span class="tag tp">Databricks MLOps</span><span class="tag tp">LLM / Prompt Eng.</span><span class="tag tp">AiOps</span><span class="tag tp">Ollama</span></div></div>
+    <div class="skill-cat rv"><h4>// Languages &amp; DB</h4><div class="tags"><span class="tag ta">Python</span><span class="tag ta">Bash</span><span class="tag ta">Java</span><span class="tag ta">JavaScript</span><span class="tag ta">HTML5/CSS3</span><span class="tag ta">MySQL</span><span class="tag ta">Linux</span></div></div>
   </div>
 </section>
 
 <section id="projects">
-  <h2>⚙️ Flagship Projects</h2>
-  
-  <!-- RESTROBILLING - NEW ADDED PROJECT -->
-  <div class="card">
-    <div class="project-header">
-      <h3>🍽️ RestroBilling - Smart Restaurant Billing System</h3>
-      <span class="project-badge">● FULL STACK + CI/CD | PRODUCTION READY</span>
+  <div class="sec-label">03 — Work</div>
+  <h2 class="sec-title rv">Flagship <em>Projects</em></h2>
+  <div class="proj-grid">
+    <div class="proj-card feat rv">
+      <div><span class="proj-badge">★ Featured · Full Stack + CI/CD</span><h3>RestroBilling — Smart Restaurant Billing</h3><p>Modern responsive restaurant billing platform with real-time cart management, dynamic menu, GST calculation, and instant bill generation. Complete Jenkins CI/CD pipeline with Docker, AWS ECR, Trivy security scanning, and automated deployment to AWS EC2.</p><a href="https://github.com/vibhakar246/RestroBilling" target="_blank" class="proj-link">View Repository →</a></div>
+      <div><div class="pills"><span class="pill">Jenkins</span><span class="pill">Docker</span><span class="pill">AWS ECR</span><span class="pill">AWS EC2</span><span class="pill">Trivy</span><span class="pill">HTML5/CSS3/JS</span></div><div class="pipe-box"><div class="ph">Pipeline Stages:</div><div>01 · Checkout</div><div>02 · Build</div><div>03 · Test</div><div>04 · Security Scan (Trivy)</div><div>05 · Push to ECR</div><div>06 · Deploy to EC2</div><div>07 · Health Check</div><div class="ok">✓ Production Ready</div></div></div>
     </div>
-    <p>Modern responsive restaurant billing platform with real-time cart management, dynamic menu, GST calculation, and instant bill generation. Engineered a <span class="key-highlight">complete Jenkins CI/CD pipeline</span> with <span class="key-highlight">Docker</span>, <span class="key-highlight">AWS ECR</span>, <span class="key-highlight">Trivy security scanning</span>, and automated deployment to <span class="key-highlight">AWS EC2</span>. Pipeline includes 8 stages: checkout, build, test, security scan, push to ECR, deploy, and health check.</p>
-    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0;">
-      <span style="background:#0f172a; padding:4px 12px; border-radius:20px;">Jenkins</span>
-      <span style="background:#0f172a; padding:4px 12px; border-radius:20px;">Docker</span>
-      <span style="background:#0f172a; padding:4px 12px; border-radius:20px;">AWS ECR/EC2</span>
-      <span style="background:#0f172a; padding:4px 12px; border-radius:20px;">Trivy</span>
-      <span style="background:#0f172a; padding:4px 12px; border-radius:20px;">HTML5/CSS3/JS</span>
-    </div>
-    <a href="https://github.com/vibhakar246/RestroBilling" class="project-link" target="_blank">📁 View Repository</a>
-  </div>
-
-  <div class="card">
-    <div class="project-header">
-      <h3>💧 AquaFlow Smart Water Delivery Platform</h3>
-      <span class="project-badge">● CI/CD + DOCKER</span>
-    </div>
-    <p>Backend automation platform with robust CI/CD, API integrations, containerized microservices, and automated testing environment. Zero-downtime delivery logic.</p>
-    <a href="https://github.com/vibhakar246/AquaFlow-Smart-Water-Delivery-Platform" class="project-link" target="_blank">View Repository</a>
-  </div>
-
-  <div class="card">
-    <div class="project-header">
-      <h3>🏦 Java Banking CI/CD DevOps Project</h3>
-      <span class="project-badge">● MAVEN + PIPELINE AUTOMATION</span>
-    </div>
-    <p>Java 17 banking app with Maven build, integrated SonarQube quality gates, and full Jenkins pipeline for automated testing & artifact management.</p>
-    <a href="https://github.com/vibhakar246/java-bank-cicd-devops" class="project-link" target="_blank">View Repository</a>
-  </div>
-
-  <div class="card">
-    <div class="project-header">
-      <h3>📊 End-to-End DevOps Project (Python + Prometheus)</h3>
-      <span class="project-badge">● MONITORING STACK</span>
-    </div>
-    <p>Python REST API deployed on AWS EC2 using Docker, Jenkins CI/CD, Prometheus metrics, and Grafana dashboards for real-time observability.</p>
-    <a href="https://github.com/vibhakar246/end-to-end-devops-project" class="project-link" target="_blank">View Repository</a>
+    <div class="proj-card rv d1"><span class="proj-badge">CI/CD + Docker</span><h3>AquaFlow Smart Water Delivery</h3><p>Backend automation platform with robust CI/CD, API integrations, containerized microservices, and automated testing. Zero-downtime delivery logic.</p><div class="pills"><span class="pill">Docker</span><span class="pill">CI/CD</span><span class="pill">Microservices</span><span class="pill">API</span></div><a href="https://github.com/vibhakar246/AquaFlow-Smart-Water-Delivery-Platform" target="_blank" class="proj-link">View Repository →</a></div>
+    <div class="proj-card rv d2"><span class="proj-badge">Maven + Pipeline</span><h3>Java Banking CI/CD DevOps</h3><p>Java 17 banking app with Maven build, SonarQube quality gates, and full Jenkins pipeline for automated testing and artifact management.</p><div class="pills"><span class="pill">Java 17</span><span class="pill">Maven</span><span class="pill">SonarQube</span><span class="pill">Jenkins</span></div><a href="https://github.com/vibhakar246/java-bank-cicd-devops" target="_blank" class="proj-link">View Repository →</a></div>
+    <div class="proj-card rv d3"><span class="proj-badge">Monitoring Stack</span><h3>End-to-End DevOps (Python + Prometheus)</h3><p>Python REST API deployed on AWS EC2 using Docker, Jenkins CI/CD, Prometheus metrics, and Grafana dashboards for real-time observability.</p><div class="pills"><span class="pill">Python</span><span class="pill">Prometheus</span><span class="pill">Grafana</span><span class="pill">AWS EC2</span></div><a href="https://github.com/vibhakar246/end-to-end-devops-project" target="_blank" class="proj-link">View Repository →</a></div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS SECTION: AI & DEVOPS RELATED (including uploaded certificates) -->
 <section id="cert">
-  <h2>🤖 AI & DevOps Certifications</h2>
-  <div class="card">
-    <div class="cert-grid">
-      
-      <!-- Qualcomm AI Technical Foundation (uploaded) -->
-      <div class="cert-card ai-cert">
-        <span class="cert-badge ai-badge">🧠 AI Technical Foundation</span>
-        <h3>AI Upskilling Certificate: Technical Foundation</h3>
-        <p>Qualcomm | Issued: March 23, 2026</p>
-        <div class="cert-date">ID: 83ItWZL5yB | AI/ML core concepts, neural network fundamentals, AI infrastructure readiness.</div>
-      </div>
-
-      <!-- Anthropic Claude 101 (AI ops & LLM) -->
-      <div class="cert-card ai-cert">
-        <span class="cert-badge ai-badge">✨ LLM Fundamentals</span>
-        <h3>Claude 101</h3>
-        <p>Anthropic | Generative AI & LLM basics, prompt engineering, responsible AI.</p>
-        <div class="cert-date">Issued: March 2026</div>
-      </div>
-
-      <!-- Anthropic Claude Code in Action (AI DevOps synergy) -->
-      <div class="cert-card ai-cert">
-        <span class="cert-badge ai-badge">⚡ AI-Assisted Development</span>
-        <h3>Claude Code in Action</h3>
-        <p>Anthropic | Certificate No: 9mjm6fqh28xj | AI pair programming, code generation & automation workflows.</p>
-        <div class="cert-date">Issued: March 18, 2026</div>
-      </div>
-
-      <!-- Databricks: Automated Deployment (AI/MLOps focus) -->
-      <div class="cert-card ai-cert">
-        <span class="cert-badge ai-badge">📦 MLOps & Automation</span>
-        <h3>Automated Deployment with Databricks Asset Bundles</h3>
-        <p>Databricks Academy | Completion: March 19, 2026</p>
-        <div class="cert-date">Infrastructure as Code for ML pipelines, asset bundles, deployment automation.</div>
-      </div>
-
-      <!-- Databricks: Advanced Machine Learning Operations (Core AiOps) -->
-      <div class="cert-card ai-cert">
-        <span class="cert-badge ai-badge">🧬 Advanced MLOps</span>
-        <h3>Advanced Machine Learning Operations</h3>
-        <p>Databricks Academy | Completion: March 19, 2026</p>
-        <div class="cert-date">ML lifecycle orchestration, model deployment, monitoring, feature store integration.</div>
-      </div>
-
-      <!-- Core DevOps certs (relevant supporting) -->
-      <div class="cert-card">
-        <span class="cert-badge">🚀 DevOps Core</span>
-        <h3>Introduction to DevOps & SRE (LFS162)</h3>
-        <div class="cert-date">Linux Foundation | SRE principles, SLIs/SLOs</div>
-      </div>
-      <div class="cert-card">
-        <span class="cert-badge">☁️ Cloud Infrastructure</span>
-        <h3>Cloud Infrastructure Technologies (LFS151)</h3>
-        <div class="cert-date">OpenStack, cloud-native patterns</div>
-      </div>
-      <div class="cert-card">
-        <span class="cert-badge">🔧 Jenkins Pipeline Expert</span>
-        <h3>Introduction to Jenkins (LFS167)</h3>
-        <div class="cert-date">Declarative pipelines, shared libraries</div>
-      </div>
-      <div class="cert-card">
-        <span class="cert-badge">🐳 Kubernetes</span>
-        <h3>Introduction to Kubernetes (LFS158)</h3>
-        <div class="cert-date">Pods, deployments, services, ingress</div>
-      </div>
-      <div class="cert-card">
-        <span class="cert-badge">🌿 GitOps</span>
-        <h3>Introduction to GitOps (LFS169)</h3>
-        <div class="cert-date">ArgoCD, flux, declarative approach</div>
-      </div>
-      <div class="cert-card">
-        <span class="cert-badge">📈 DevOps on AWS</span>
-        <h3>DevOps on AWS Specialization</h3>
-        <div class="cert-date">CodePipeline, CodeBuild, Elastic Beanstalk</div>
-      </div>
-    </div>
-    <p style="margin-top: 20px; text-align: center; font-size: 0.85rem;">✅ AI-focused certs: Qualcomm AI, Anthropic Claude suite, Databricks MLOps — integrating AI with DevOps for intelligent automation.</p>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>📡 Initialize Contact</h2>
-  <div class="card" style="text-align: center;">
-    <p>Ready for immediate integration into your engineering team. Let's automate the future.</p>
-    <div style="margin-top: 24px;">
-      <p>📞 Phone: <a href="tel:+918935991394" class="contact-link">+91 8935991394</a></p>
-      <p>✉️ Email: <a href="mailto:vibhakarsingh@hotmail.com" class="contact-link">vibhakarsingh@hotmail.com</a></p>
-      <p>🐙 GitHub: <a href="https://github.com/vibhakar246" target="_blank" class="contact-link">github.com/vibhakar246</a></p>
-      <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/iamvibhakar-kumar" target="_blank" class="contact-link">linkedin.com/in/iamvibhakar-kumar</a></p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Vibhakar Kumar — <span style="color: var(--primary);">● System Online ● AiOps Ready</span></p>
-</footer>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Intersection Observer for sections
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
-    sections.forEach(s => observer.observe(s));
-
-    // smooth scroll
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElem = document.querySelector(targetId);
-        if (targetElem) {
-          targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // force initial visible after slight delay for all sections in view
-    setTimeout(() => {
-      sections.forEach(s => {
-        const rect = s.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) s.classList.add('visible');
-      });
-    }, 300);
-  });
-</script>
-
-</body>
-</html>
+  <div class="sec-label">04 — Certifications</div>
+  <h2 class="sec-title rv">AI &amp; DevOps <em>Credentials</em></h2>
+  <div class="cert-grid">
+    <div class="cert-card ai rv d1"><div class="cert-ico ico-p">🧠</div><div class="cert-lbl ai">AI Technical Foundation</div><h3>AI Upskilling: Technical Foundation</h3><p>Qualcomm · ID: 83ItWZL5yB</p><p class="cert-date">March 23, 2026</p></div>
+    <div class="cert-card ai rv d2"><div class="cert-ico ico-p">✨</div><div class="cert-lbl ai">LLM Fundamentals</div><h3>Claude 101</h3><p>Anthropic · Generative AI &amp; Prompt Engineering</p><p class="cert-date">March 2026</p></div>
+    <div class="cert-card ai rv d3"><div class="cert-ico ico-p">⚡</div><div class="cert-lbl ai">AI-Assisted Development</div><h3>Claude Code in Action</h3><p>Anthropic · Cert: 9mjm6fqh28xj</p><p class="cert-date">March 18, 2026</p></div>
+    <div class="cert-card ai rv"><div class="cert-ico ico-p">📦</div><div class="cert-lbl ai">MLOps &amp; Automation</div><h3>Automated Deployment with Databricks Asset Bundles</h3><p>Databricks Academy</p><p class="cert-date">March 19, 2026</p></div>
+    <div class="cert-card ai rv d1"><div class="cert-ico ico-p">🧬</div><div class="cert-lbl ai">Advanced MLOps</div><h3>Advanced Machine Learning Operations</h3><p>Databricks Academy</p><p class="cert-date">March 19, 2026</p></div>
+    <div class="cert-card rv d2"><div class="cert-ico ico-g">🚀</div><div class="cert-lbl">DevOps Core</div><h3>Introduction to DevOps &
